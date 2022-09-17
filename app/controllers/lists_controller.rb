@@ -13,16 +13,28 @@ class ListsController < ApplicationController
     redirect_to '/top'
   end
 
+
+
+
   def index
+    @lists = List.all
+
   end
 
+
+
+
+
   def show
+    
+    @list = List.find(params[:id])
+    # listという単数形でかく。
   end
 
   def edit
   end
-  
-  private
+
+   private
   # ストロングパラメータ
   def list_params
     params.require(:list).permit(:title, :body)
